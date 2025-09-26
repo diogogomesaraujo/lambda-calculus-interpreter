@@ -24,6 +24,7 @@ prog:
   ;
 
 expr:
+  | i = INT { Const i }
   | id = ID { Var id }
   | LAMBDA; s = ID; SEPARATOR; e = expr { Lamda(s , e) }
   | LPAR; e1 = expr; RPAR; LPAR; e2 = expr; RPAR; { Application(e1 , e2) }
