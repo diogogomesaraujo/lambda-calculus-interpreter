@@ -12,7 +12,12 @@
 
 %token SEPARATOR
 
+%token APPLICATION
+
 %token EOF
+
+%right LAMBDA SEPARATOR
+%left APPLICATION
 
 %start <Ast.expr> prog
 %%
@@ -22,17 +27,9 @@ prog:
   ;
 
 expr:
-  | app_expr { $1 }
-  | LAMBDA; s = ID; SEPARATOR; e = expr { Lambda(s , e) }
-  ;
-
-app_expr:
-  | simple_expr { $1 }
-  | app_expr; simple_expr { Application($1 , $2) }
-  ;
-
-simple_expr:
   | i = INT { Const i }
   | id = ID { Var id }
-  | LPAR; e = expr; RPAR { e }
+  | LAMBDA; s = ID; SEPARATOR; e = expr { Lambda(s , e) }
+  | e1 = expr; e2 = expr; { Application(e1 , e2) } %prec APPLICATION
+  | LPAR; e = expr; RPAR {e}
   ;
