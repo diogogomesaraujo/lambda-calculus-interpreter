@@ -1,0 +1,10 @@
+λx.x
+λx.λy.x
+λf.λx.f x
+λf.λg.λx.f (g x)
+λf.λx.f (f x)
+λx.λy.x
+λx.λy.y
+λp.λa.λb.p a b
+λx.x x
+λn.λf.λx.f (n f x)
