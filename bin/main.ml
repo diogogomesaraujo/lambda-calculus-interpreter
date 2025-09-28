@@ -14,7 +14,8 @@ let lambda = "
               ⢀⣾⣿⣿⣿⠁⠀⠀⠀⠀⠀⠈⠿⣿⣿⣿⡇"
 
 let rec main () =
-  print_endline "> Write a λ-Calculus expression to be reduced: ";
+  print_endline "----------------------------------------------
+> Write a λ-Calculus expression to be reduced: ";
   print_string ">> ";
   let i = read_line () in
   match  Parse.parse i with
