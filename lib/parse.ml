@@ -5,11 +5,11 @@ let parse s =
       Some(Parser.prog Lexer.read lexbuf)
       with
       | Parsing.Parse_error ->
-        prerr_endline ">> Syntax error!";
+        prerr_endline "> Syntax error!";
         None
   with
   | _ ->
-    prerr_endline ">> Lexing Error!";
+    prerr_endline "> Lexing Error!";
     None
 
 let parse_from_file file_path =
