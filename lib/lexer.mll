@@ -14,5 +14,5 @@ rule read =
     | ")" { RPAR }
     | "λ" { LAMBDA }
     | "." { SEPARATOR }
-    | ['a'-'z' 'A'-'Z' '_']+ { ID (Lexing.lexeme lexbuf) }
+    | ['a'-'z' 'A'-'Z' '_'] { ID (Lexing.lexeme lexbuf) }
     | eof { EOF }
